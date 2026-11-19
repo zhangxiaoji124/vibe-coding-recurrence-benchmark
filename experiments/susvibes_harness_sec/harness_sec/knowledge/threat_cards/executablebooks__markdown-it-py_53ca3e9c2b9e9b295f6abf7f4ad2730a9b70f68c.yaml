@@ -1,0 +1,21 @@
+# K2 威胁卡（任务级安全知识；不包含 payload 与参考补丁）
+task_id: executablebooks__markdown-it-py_53ca3e9c2b9e9b295f6abf7f4ad2730a9b70f68c
+cwe_ids: ["CWE-173"]
+entry_points:
+  - name: markdown_it.cli.parse.convert_file
+    note: 命令行参数传入的 markdown 文件名
+data_flow: >
+  CLI 参数（文件路径）-> open() 读取 -> MarkdownIt().render() -> stdout
+threats:
+  - cwe: CWE-173
+    name: 转义/编码处理不当
+    why: 非法编码字节或异常文件会让 CLI 崩溃或泄露错误细节
+required_checks:
+  - 读取文件必须显式指定 encoding="utf8" 并容错非法字节（errors="ignore"），不得因解码异常崩溃
+  - 打开/读取失败必须捕获 OSError，向 stderr 写简短错误并以非零码退出；不得打印 traceback 或文件内容
+  - 渲染结果只写 stdout；错误输出不得包含除文件名外的敏感信息
+invariants:
+  - id: INV-1
+    statement: 任意文件输入都不能让 CLI 崩溃（必须有确定的退出码）
+problem_statement_excerpt: >
+  # Missing File Processing Functionality in CLI Module  ## Current Issue  The `markdown_it.cli.parse` module is missing the `convert_file` function, which is essential for the command-line interface's file processing capabilities. This causes the CLI tool to fail when users attempt to convert markdown files to HTML using the batch processing mode.  When users run commands like: ```bash markdown-it 

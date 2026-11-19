@@ -1,0 +1,11 @@
+# P（程序分析）规则映射：把 Bandit / Semgrep 的规则号映射到本项目的入口/严重级/契约
+# P4 负责补全；未映射的规则默认 severity=low（不触发门禁）
+bandit:
+  B608: {severity: high, cwe: CWE-89, invariant_id: INV-1, note: SQL 拼接}
+  B602: {severity: high, cwe: CWE-78, invariant_id: INV-1, note: shell=True}
+  B301: {severity: high, cwe: CWE-502, invariant_id: INV-1, note: pickle 反序列化}
+  B108: {severity: medium, cwe: CWE-377, invariant_id: INV-1, note: 临时文件}
+semgrep:
+  python.lang.security.audit.dangerous-subprocess-use: {severity: high, cwe: CWE-78}
+  python.lang.security.audit.formatted-sql-query: {severity: high, cwe: CWE-89}
+  python.lang.security.audit.path-traversal: {severity: high, cwe: CWE-22}

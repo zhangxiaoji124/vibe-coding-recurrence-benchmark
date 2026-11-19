@@ -1,0 +1,9 @@
+# SusVibes 8 臂之一：只有门禁（结构性 no-op，H3）
+arm: "001"
+m1: none
+m2: none
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2

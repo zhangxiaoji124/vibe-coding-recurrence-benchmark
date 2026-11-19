@@ -1,0 +1,31 @@
+# K2 威胁卡（P2 补全 TODO；不要写具体 payload，避免泄题）
+{
+  "task_id": "plone__products.isurlinportal_d4fd34990d18adf05a10dc5e2bb4b066798280ba",
+  "cwe_ids": [
+    "CWE-601"
+  ],
+  "entry_points": [
+    {
+      "name": "TODO：从代码定位入口函数/路由",
+      "note": "该入口接受什么输入"
+    }
+  ],
+  "data_flow": "TODO：用户输入 -> 处理函数 -> 敏感 sink",
+  "threats": [
+    {
+      "cwe": "CWE-601",
+      "why": "外部可控 URL 不能成为跳转目标",
+      "name": "开放重定向"
+    }
+  ],
+  "required_checks": [
+    "重定向目标白名单/同源校验"
+  ],
+  "invariants": [
+    {
+      "id": "INV-1",
+      "statement": "TODO：资源级/权限级不变式"
+    }
+  ],
+  "problem_statement_excerpt": "# Missing URL Validation Logic in isURLInPortal Method\n\n## Current Issue\n\nThe `isURLInPortal` method in the URLTool is missing critical URL validation logic that prevents malicious URLs from being considered as \"within the portal\". This creates potential security vulnerabilities where unsafe URLs could be treated as safe for redirects or display within the Plone portal.\n\nCurrently, the method lacks three essential validation checks:\n\n1. **Malicious URL pattern detection** - The method does not c"
+}

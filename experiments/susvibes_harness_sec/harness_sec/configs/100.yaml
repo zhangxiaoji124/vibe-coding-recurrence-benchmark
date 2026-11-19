@@ -1,0 +1,9 @@
+# SusVibes 8 臂之一：只有知识（任务感知）
+arm: "100"
+m1: k2
+m2: none
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0

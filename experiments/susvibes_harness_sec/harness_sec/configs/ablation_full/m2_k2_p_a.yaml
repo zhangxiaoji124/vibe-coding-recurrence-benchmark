@@ -1,0 +1,11 @@
+# 消融-扩展：M2 家族：K2 + P 规则 + A（对照 31 的 E）
+arm: "m2_k2_p_a"
+recipe: "m2_k2_p_a"
+m1: k2
+m2: p
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: "A"

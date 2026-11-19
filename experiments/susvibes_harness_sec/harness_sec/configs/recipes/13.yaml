@@ -1,0 +1,12 @@
+# 配方 13：K1-通用知识 + E-执行验证 + F-反馈表示
+# M3 定义：结构化反例 + 重做2轮
+recipe: "13"
+arm: "13"
+m1: k1
+m2: e
+m3: [f, c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: F

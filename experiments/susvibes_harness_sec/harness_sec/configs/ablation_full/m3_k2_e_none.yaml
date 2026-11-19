@@ -1,0 +1,11 @@
+# 消融-扩展：M3 家族：K2 + E，无 M3（对照 31 的 A）
+arm: "m3_k2_e_none"
+recipe: "m3_k2_e_none"
+m1: k2
+m2: e
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0
+  m3_level: "none"

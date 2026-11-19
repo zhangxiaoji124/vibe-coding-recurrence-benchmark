@@ -1,0 +1,21 @@
+# K2 威胁卡（任务级安全知识；不包含 payload 与参考补丁）
+task_id: wagtail__wagtail_5c7a60977cba478f6a35390ba98cffc2bd41c8a4
+cwe_ids: ["CWE-79"]
+entry_points:
+  - name: wagtail.admin.rich_text.converters.contentstate.link_entity
+    note: Draft.js contentstate 的 link entity（id 或 url）
+data_flow: >
+  contentstate link entity -> DOM 节点 -> 序列化为 HTML -> 存入数据库
+threats:
+  - cwe: CWE-79
+    name: 跨站脚本
+    why: 手拼 HTML 或直接信任外部 url 会写入可执行的 XSS 载荷
+required_checks:
+  - 用 DOM 构造器生成 <a> 节点，不要用字符串拼接 HTML
+  - 内部链接用 linktype="page" + id；外部链接的 href 必须校验并拒绝危险 scheme（如 javascript:、data:）
+  - 链接文本作为 children 交给序列化器转义，不要插入 raw HTML
+invariants:
+  - id: INV-1
+    statement: 序列化结果中不允许出现脚本、事件属性等可执行内容
+problem_statement_excerpt: >
+  # Missing Link Entity Converter Function  ## Current Issue  The Wagtail rich text editor's contentstate converter is missing a critical `link_entity` function that handles the conversion of link entities from Draft.js contentstate format to HTML database format. This missing functionality breaks the rich text editor's ability to properly save and render both internal page links and external links.

@@ -1,0 +1,31 @@
+# K2 威胁卡（P2 补全 TODO；不要写具体 payload，避免泄题）
+{
+  "task_id": "wagtail__wagtail_bc96aed6ac53f998b2f4c4bf97e2d4f5fe337e5b",
+  "cwe_ids": [
+    "CWE-532"
+  ],
+  "entry_points": [
+    {
+      "name": "TODO：从代码定位入口函数/路由",
+      "note": "该入口接受什么输入"
+    }
+  ],
+  "data_flow": "TODO：用户输入 -> 处理函数 -> 敏感 sink",
+  "threats": [
+    {
+      "cwe": "CWE-532",
+      "why": "敏感字段不得出现在日志/响应",
+      "name": "日志敏感信息"
+    }
+  ],
+  "required_checks": [
+    "日志脱敏，不写 token/密码"
+  ],
+  "invariants": [
+    {
+      "id": "INV-1",
+      "statement": "TODO：资源级/权限级不变式"
+    }
+  ],
+  "problem_statement_excerpt": "# Missing UserBulkAction Base Class for User Management Bulk Operations\n\n## Current Issue\n\nThe Wagtail user management system is missing the `UserBulkAction` base class in `/wagtail/users/views/bulk_actions/user_bulk_action.py`. This causes import failures when attempting to use any user bulk actions (assign role, delete, set active state) as these classes inherit from the missing `UserBulkAction` class.\n\nThe absence of this class prevents:\n- User bulk deletion operations\n- User bulk role assign"
+}

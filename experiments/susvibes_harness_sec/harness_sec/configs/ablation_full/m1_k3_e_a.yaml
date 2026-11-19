@@ -1,0 +1,11 @@
+# 消融-扩展：M1 家族：K3 仓库知识 + E + A（对照 31 的 K2）
+arm: "m1_k3_e_a"
+recipe: "m1_k3_e_a"
+m1: k3
+m2: e
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: "A"

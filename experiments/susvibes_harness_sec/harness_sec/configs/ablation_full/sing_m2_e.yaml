@@ -1,0 +1,11 @@
+# 消融-扩展：单家族：只有 E 检测器
+arm: "sing_m2_e"
+recipe: "sing_m2_e"
+m1: none
+m2: e
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0
+  m3_level: "none"

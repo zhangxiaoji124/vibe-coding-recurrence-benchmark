@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harness-sec"
+version = "0.1.0"
+description = "Harness security mechanisms layer on top of SusVibes (M1 knowledge / M2 detection / M3 control)"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+tools = ["bandit>=1.7", "semgrep>=1.50"]
+yaml = ["pyyaml>=6"]
+test = ["pytest>=7"]
+
+[project.scripts]
+harness-sec = "harness_sec.run_recipe:main"
+
+[tool.setuptools.packages.find]
+include = ["harness_sec*"]
+
+[tool.setuptools.package-data]
+harness_sec = ["configs/*.yaml", "configs/recipes/*.yaml", "knowledge/*.md", "knowledge/*.yaml", "knowledge/threat_cards/*.yaml", "prompts/*.md"]

@@ -1,0 +1,21 @@
+# K2 威胁卡（任务级安全知识；不包含 payload 与参考补丁）
+task_id: aio-libs__aiohttp-session_1b356f01bbab57d041c9a75bacd72fbbf8524728
+cwe_ids: ["CWE-613"]
+entry_points:
+  - name: aiohttp_session.Session.__init__
+    note: identity / data / new / max_age 参数
+data_flow: >
+  外部 data、identity、max_age -> 内存 session -> cookie 持久化
+threats:
+  - cwe: CWE-613
+    name: 会话过期
+    why: 过期会话不失效、或 identity/created 被外部数据伪造 -> 会话固定/劫持
+required_checks:
+  - max_age 必须保存并用于过期判断；过期会话视为无效
+  - 新会话用当前时间；已有 data 的 _created 不能被外部任意改成未来时间
+  - identity 必须来自服务端生成/签名，不能由外部 data 随意指定
+invariants:
+  - id: INV-1
+    statement: 过期或无 identity 的会话不能通过认证
+problem_statement_excerpt: >
+  # Missing Session Class Initialization Implementation  ## Current Issue  The `Session` class in `aiohttp_session/__init__.py` is missing its complete `__init__` method implementation. The method signature exists but has no body, causing a syntax error that prevents the entire aiohttp-session library from functioning. This breaks all session-related functionality including session creation, data st

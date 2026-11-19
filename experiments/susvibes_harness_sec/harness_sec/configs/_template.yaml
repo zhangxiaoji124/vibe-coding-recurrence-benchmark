@@ -1,0 +1,10 @@
+# 臂配置模板：m1/m2/m3 可以是单个块名、块名列表，或 none
+# 8 臂（SusVibes E1）：000 100 010 001 110 101 011 111
+# 48 配方（本地小数据集或缩小版）：每组取一个 m1 + 一个 m2 + 一个 m3
+arm: "011"
+m1: k2            # k1 通用 / k2 任务感知 / k3 仓库感知 / none
+m2: [l2, p]       # l1 自审 / l2 独立审查 / p 程序分析 / e 执行验证 / 列表 / none
+m3: [f, c, a]     # f 反馈 / c 循环 / a 门禁 / s 契约 / 列表 / none
+model: deepseek-chat
+params:
+  max_retries: 2

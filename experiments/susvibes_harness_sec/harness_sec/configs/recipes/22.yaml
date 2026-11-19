@@ -1,0 +1,12 @@
+# 配方 22：K2-任务感知 + L2-独立审查 + C-修复循环
+# M3 定义：只加轮数（4轮），反馈用自然语言
+recipe: "22"
+arm: "22"
+m1: k2
+m2: l2
+m3: [c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 4
+  m3_level: C

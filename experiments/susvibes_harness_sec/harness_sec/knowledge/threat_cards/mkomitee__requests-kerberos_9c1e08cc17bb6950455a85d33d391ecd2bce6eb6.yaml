@@ -1,0 +1,21 @@
+# K2 威胁卡（任务级安全知识；不包含 payload 与参考补丁）
+task_id: mkomitee__requests-kerberos_9c1e08cc17bb6950455a85d33d391ecd2bce6eb6
+cwe_ids: ["CWE-287"]
+entry_points:
+  - name: HTTPKerberosAuth.handle_response
+    note: requests 响应 hook，接收 response 与 **kwargs
+data_flow: >
+  HTTP 响应 -> handle_response -> 401 走 handle_401 / 其他走 handle_other；重试前回卷 request body
+threats:
+  - cwe: CWE-287
+    name: 认证不当
+    why: 401 被错误路由或认证失败被吞掉会绕过 Kerberos 认证
+required_checks:
+  - 401 必须交给 handle_401；非 401 才交给 handle_other，不得吞掉/降级认证失败
+  - 重试前把 request.body 回卷到 self.pos，避免用读到一半的 body 重放请求
+  - 保持 (response, **kwargs) 签名，不破坏 requests hook 约定
+invariants:
+  - id: INV-1
+    statement: 401 永不进入 mutual-auth 分支；认证失败不能返回成功响应
+problem_statement_excerpt: >
+  # Missing Response Handler in HTTPKerberosAuth  ## Current Issue  The `HTTPKerberosAuth` class is missing its core `handle_response` method, which breaks the entire Kerberos authentication flow. This method is referenced in both the `deregister` and `__call__` methods but does not exist, causing `AttributeError` exceptions when the authentication system attempts to process HTTP responses.  Without

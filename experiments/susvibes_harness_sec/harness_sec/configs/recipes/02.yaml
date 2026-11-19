@@ -1,0 +1,12 @@
+# 配方 02：K1-通用知识 + L1-自审 + C-修复循环
+# M3 定义：只加轮数（4轮），反馈用自然语言
+recipe: "02"
+arm: "02"
+m1: k1
+m2: l1
+m3: [c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 4
+  m3_level: C

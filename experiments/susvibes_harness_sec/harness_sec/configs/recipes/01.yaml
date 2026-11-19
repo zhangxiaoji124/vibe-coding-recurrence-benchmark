@@ -1,0 +1,12 @@
+# 配方 01：K1-通用知识 + L1-自审 + F-反馈表示
+# M3 定义：结构化反例 + 重做2轮
+recipe: "01"
+arm: "01"
+m1: k1
+m2: l1
+m3: [f, c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: F

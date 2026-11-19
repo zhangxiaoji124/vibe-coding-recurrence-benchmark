@@ -1,0 +1,11 @@
+# 消融-扩展：单家族：只有 K2 卡
+arm: "sing_k2"
+recipe: "sing_k2"
+m1: k2
+m2: none
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0
+  m3_level: "none"

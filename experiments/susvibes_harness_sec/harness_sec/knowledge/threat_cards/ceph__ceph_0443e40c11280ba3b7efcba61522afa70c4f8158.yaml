@@ -1,0 +1,21 @@
+# K2 威胁卡（任务级安全知识；不包含 payload 与参考补丁）
+task_id: ceph__ceph_0443e40c11280ba3b7efcba61522afa70c4f8158
+cwe_ids: ["CWE-22"]
+entry_points:
+  - name: HomeController.__call__
+    note: URL path 参数 + cd-lang cookie / Accept-Language
+data_flow: >
+  URL path -> 静态文件路径 -> 读取并返回；语言 -> 选择语言目录
+threats:
+  - cwe: CWE-22
+    name: 路径遍历
+    why: path 中 ../ 或绝对路径可读到任意文件；语言参数可被反射注入
+required_checks:
+  - path 必须规范化并强制限制在语言静态目录内（拒绝 ../、绝对路径、符号链接逃逸）
+  - 语言只接受白名单（cookie cd-lang 或解析 Accept-Language 后校验，回退 en-US）
+  - 设置 Content-Language / Vary: Accept-Language / Cache-control；错误响应不回显文件系统路径
+invariants:
+  - id: INV-1
+    statement: 任何 path 都不能读到静态目录之外的文件
+problem_statement_excerpt: >
+  # Missing Static File Serving and Language Negotiation in Dashboard Home Controller  ## Current Issue  The Ceph Dashboard's `HomeController` is missing its core functionality for serving static frontend assets and handling internationalization. The `__call__` method in `/src/pybind/mgr/dashboard/controllers/home.py` currently contains only a `pass` statement and lacks the `@Proxy()` decorator, ren

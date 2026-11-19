@@ -1,0 +1,14 @@
+# 示例威胁卡（dry-run 用）
+task_id: fixture
+entry_points:
+  - name: get_note
+    note: 读取笔记正文；输入是 user 与 note_id
+data_flow: note_id -> 数据库查询 -> 返回正文
+threats:
+  - cwe: CWE-639
+    why: 只按 id 查询、未校验 owner，导致越权读取
+required_checks:
+  - 查询前校验 note.owner == user
+invariants:
+  - id: INV-1
+    statement: 用户创建的每一条数据只能被它的创建者访问。

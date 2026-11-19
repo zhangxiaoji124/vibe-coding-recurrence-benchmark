@@ -1,0 +1,9 @@
+# SusVibes 8 臂之一：只有检测（安慰剂 H2）
+arm: "010"
+m1: none
+m2: [l2, p]
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0

@@ -19,5 +19,14 @@
 | [results/](results/) | 已保存的逐轮 JSON 结果和图表 |
 | [workspaces/](workspaces/) | 已保存的模型输出代码和测试副本 |
 | [scripts/](scripts/) | 结果汇总和绘图脚本 |
+| [experiments/](experiments/) | 第二阶段：SusVibes 外部基准上的安全机制实验（8 臂 / 48 组） |
 
 从 [配置与测试](docs/TESTING.md) 开始。离线功能测试无需模型服务或 API 密钥。
+
+## 第二阶段实验（SusVibes 安全机制）
+
+`experiments/susvibes_harness_sec/` 是另一条独立实验线：在 SusVibes 的 186 个真实仓库任务上，比较 11 个安全机制积木（知识输入 / 质量检测 / 反馈与控制）的 8 臂因子组合与 48 组配方，用官方 FuncPass / SecPass 评测。
+
+它与根目录的 `cases/`、`harness/` 互不影响，但需要额外：**clone SusVibes、安装 Docker、自己的 DeepSeek API key**。
+
+从 [experiments/susvibes_harness_sec/docs/GROUP_BRIEF.md](experiments/susvibes_harness_sec/docs/GROUP_BRIEF.md) 开始。

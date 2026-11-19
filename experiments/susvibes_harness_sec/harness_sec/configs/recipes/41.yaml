@@ -1,0 +1,12 @@
+# 配方 41：K3-仓库感知 + P-程序分析 + F-反馈表示
+# M3 定义：结构化反例 + 重做2轮
+recipe: "41"
+arm: "41"
+m1: k3
+m2: p
+m3: [f, c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: F

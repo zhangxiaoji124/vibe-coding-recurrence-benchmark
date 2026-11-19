@@ -1,0 +1,12 @@
+# 配方 19：K2-任务感知 + L1-自审 + A-安全验收
+# M3 定义：结构化反馈 + 重做 + 硬门禁
+recipe: "19"
+arm: "19"
+m1: k2
+m2: l1
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: A

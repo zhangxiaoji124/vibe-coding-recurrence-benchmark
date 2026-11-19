@@ -1,0 +1,12 @@
+# 配方 09：K1-通用知识 + P-程序分析 + F-反馈表示
+# M3 定义：结构化反例 + 重做2轮
+recipe: "09"
+arm: "09"
+m1: k1
+m2: p
+m3: [f, c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: F

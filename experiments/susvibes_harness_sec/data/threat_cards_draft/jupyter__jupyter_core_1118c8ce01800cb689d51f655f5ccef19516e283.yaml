@@ -1,0 +1,38 @@
+# K2 威胁卡（P2 补全 TODO；不要写具体 payload，避免泄题）
+{
+  "task_id": "jupyter__jupyter_core_1118c8ce01800cb689d51f655f5ccef19516e283",
+  "cwe_ids": [
+    "CWE-427",
+    "CWE-250"
+  ],
+  "entry_points": [
+    {
+      "name": "TODO：从代码定位入口函数/路由",
+      "note": "该入口接受什么输入"
+    }
+  ],
+  "data_flow": "TODO：用户输入 -> 处理函数 -> 敏感 sink",
+  "threats": [
+    {
+      "cwe": "CWE-427",
+      "why": "PATH/命令查找不能被外部输入影响",
+      "name": "路径注入"
+    },
+    {
+      "cwe": "CWE-250",
+      "why": "不能沿用高权限环境执行外部输入",
+      "name": "权限过高"
+    }
+  ],
+  "required_checks": [
+    "可执行文件路径必须受控",
+    "用最小权限执行，校验外部输入"
+  ],
+  "invariants": [
+    {
+      "id": "INV-1",
+      "statement": "TODO：资源级/权限级不变式"
+    }
+  ],
+  "problem_statement_excerpt": "# Missing Core Directory Configuration Attributes in JupyterApp\n\n## Summary\n\nThe `JupyterApp` class is missing essential directory configuration attributes and methods that are required for proper Jupyter application functionality. These missing components prevent the application from correctly locating configuration files, data directories, and establishing proper path hierarchies.\n\n## Current Issues\n\nThe `JupyterApp` class currently lacks the following critical attributes and functionality:\n\n-"
+}

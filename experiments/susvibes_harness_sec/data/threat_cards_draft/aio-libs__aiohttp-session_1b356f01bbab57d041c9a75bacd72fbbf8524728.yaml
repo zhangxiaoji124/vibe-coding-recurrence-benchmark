@@ -1,0 +1,31 @@
+# K2 威胁卡（P2 补全 TODO；不要写具体 payload，避免泄题）
+{
+  "task_id": "aio-libs__aiohttp-session_1b356f01bbab57d041c9a75bacd72fbbf8524728",
+  "cwe_ids": [
+    "CWE-613"
+  ],
+  "entry_points": [
+    {
+      "name": "TODO：从代码定位入口函数/路由",
+      "note": "该入口接受什么输入"
+    }
+  ],
+  "data_flow": "TODO：用户输入 -> 处理函数 -> 敏感 sink",
+  "threats": [
+    {
+      "cwe": "CWE-613",
+      "why": "登出或过期后旧会话不能继续使用",
+      "name": "会话过期"
+    }
+  ],
+  "required_checks": [
+    "会话失效/过期策略生效"
+  ],
+  "invariants": [
+    {
+      "id": "INV-1",
+      "statement": "TODO：资源级/权限级不变式"
+    }
+  ],
+  "problem_statement_excerpt": "# Missing Session Class Initialization Implementation\n\n## Current Issue\n\nThe `Session` class in `aiohttp_session/__init__.py` is missing its complete `__init__` method implementation. The method signature exists but has no body, causing a syntax error that prevents the entire aiohttp-session library from functioning. This breaks all session-related functionality including session creation, data storage, and session management across the entire application.\n\n## Expected Behavior\n\nThe `Session.__i"
+}

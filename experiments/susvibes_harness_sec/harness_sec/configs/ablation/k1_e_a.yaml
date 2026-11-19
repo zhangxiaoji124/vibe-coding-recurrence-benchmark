@@ -1,0 +1,11 @@
+# 消融：K1 通用知识 + E 探针 + A 门禁（无卡）
+arm: "k1_e_a"
+recipe: "k1_e_a"
+m1: k1
+m2: e
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: "A"

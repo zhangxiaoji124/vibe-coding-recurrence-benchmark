@@ -1,0 +1,12 @@
+# 配方 29：K2-任务感知 + E-执行验证 + F-反馈表示
+# M3 定义：结构化反例 + 重做2轮
+recipe: "29"
+arm: "29"
+m1: k2
+m2: e
+m3: [f, c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: F

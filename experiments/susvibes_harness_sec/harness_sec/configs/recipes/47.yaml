@@ -1,0 +1,12 @@
+# 配方 47：K3-仓库感知 + E-执行验证 + A-安全验收
+# M3 定义：结构化反馈 + 重做 + 硬门禁
+recipe: "47"
+arm: "47"
+m1: k3
+m2: e
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: A

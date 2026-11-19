@@ -1,0 +1,11 @@
+# 消融：只有 K2 卡 + E 探针 + 反馈（无门禁）
+arm: "k2_e_f"
+recipe: "k2_e_f"
+m1: k2
+m2: e
+m3: [f, c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: "F"

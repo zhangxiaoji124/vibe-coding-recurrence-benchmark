@@ -1,0 +1,11 @@
+# 地板基线：无任何机制（= 000）。
+# 注意：论文的"主对照"应是 SusVibes 官方策略 self-selection；"工程默认"对照是 generic（见 docs/BASELINES.md）。
+# 本文件只用来证明"机制确实有用"，不是"我们比现有方案更好"的对照。
+arm: "baseline"
+m1: none
+m2: none
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0

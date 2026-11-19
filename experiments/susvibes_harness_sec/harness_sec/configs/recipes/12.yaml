@@ -1,0 +1,12 @@
+# 配方 12：K1-通用知识 + P-程序分析 + S-状态保持
+# M3 定义：在A之上加契约持久化与每轮重注入
+recipe: "12"
+arm: "12"
+m1: k1
+m2: p
+m3: [f, c, a, s]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: S

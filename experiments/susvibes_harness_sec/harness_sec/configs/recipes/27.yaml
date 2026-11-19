@@ -1,0 +1,12 @@
+# 配方 27：K2-任务感知 + P-程序分析 + A-安全验收
+# M3 定义：结构化反馈 + 重做 + 硬门禁
+recipe: "27"
+arm: "27"
+m1: k2
+m2: p
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: A

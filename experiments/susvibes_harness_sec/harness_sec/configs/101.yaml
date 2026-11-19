@@ -1,0 +1,9 @@
+# SusVibes 8 臂之一：知识+门禁（第二安慰剂）
+arm: "101"
+m1: k2
+m2: none
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2

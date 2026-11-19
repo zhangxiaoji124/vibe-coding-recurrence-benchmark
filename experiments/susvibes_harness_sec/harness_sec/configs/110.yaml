@@ -1,0 +1,9 @@
+# SusVibes 8 臂之一：知识+检测，不闭环
+arm: "110"
+m1: k2
+m2: [l2, p]
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0

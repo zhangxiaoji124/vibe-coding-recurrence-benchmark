@@ -1,0 +1,9 @@
+# SusVibes 8 臂之一：无机制基线
+arm: "000"
+m1: none
+m2: none
+m3: none
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 0

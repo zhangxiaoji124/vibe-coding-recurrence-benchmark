@@ -1,0 +1,15 @@
+# 威胁卡模板（K2 读取；S 的契约条款也从这里取）
+# 填写要求：只写"要防什么类别"，不要写具体攻击 payload（防止把答案泄给 agent）
+task_id: _template
+entry_points:
+  - name: function_or_route
+    note: 这个入口接受什么输入、流向哪里
+data_flow: 用户输入 -> 处理函数 -> 敏感 sink（文件/命令/SQL/HTML/反序列化）
+threats:
+  - cwe: CWE-XXX
+    why: 为什么会中招（一句话）
+required_checks:
+  - 具体的校验/编码要求（可执行、可验证）
+invariants:
+  - id: INV-1
+    statement: 资源级不变式（如"用户创建的每一条数据只能被创建者访问"）

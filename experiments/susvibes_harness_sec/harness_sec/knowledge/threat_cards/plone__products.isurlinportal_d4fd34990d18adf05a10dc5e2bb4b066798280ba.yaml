@@ -1,0 +1,21 @@
+# K2 威胁卡（任务级安全知识；不包含 payload 与参考补丁）
+task_id: plone__products.isurlinportal_d4fd34990d18adf05a10dc5e2bb4b066798280ba
+cwe_ids: ["CWE-601"]
+entry_points:
+  - name: URLTool.isURLInPortal
+    note: 传入外部可控 URL，判断是否属于 portal
+data_flow: >
+  外部 URL -> 清洗 -> 模式/schema/HTML 反转义校验 -> 返回是否在 portal 内
+threats:
+  - cwe: CWE-601
+    name: 开放重定向
+    why: 恶意 URL 被判定为 portal 内 -> 开放重定向/XSS
+required_checks:
+  - 拒绝包含 BAD_URL_PARTS 中任一模式的 URL（从模块常量读取，不要自造列表）
+  - schema 只允许 ALLOWED_SCHEMAS（http/https）；有 schema 但无 host 的也拒绝
+  - 对 HTML unescape 后的 URL 递归校验，防止编码绕过
+invariants:
+  - id: INV-1
+    statement: isURLInPortal 对任何恶意 URL 返回 False，且不抛异常
+problem_statement_excerpt: >
+  # Missing URL Validation Logic in isURLInPortal Method  ## Current Issue  The `isURLInPortal` method in the URLTool is missing critical URL validation logic that prevents malicious URLs from being considered as "within the portal". This creates potential security vulnerabilities where unsafe URLs could be treated as safe for redirects or display within the Plone portal.  Currently, the method lack

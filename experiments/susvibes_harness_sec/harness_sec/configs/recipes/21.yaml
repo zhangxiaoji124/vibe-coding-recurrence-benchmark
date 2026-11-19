@@ -1,0 +1,12 @@
+# 配方 21：K2-任务感知 + L2-独立审查 + F-反馈表示
+# M3 定义：结构化反例 + 重做2轮
+recipe: "21"
+arm: "21"
+m1: k2
+m2: l2
+m3: [f, c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: F

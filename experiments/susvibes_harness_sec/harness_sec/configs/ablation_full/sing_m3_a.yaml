@@ -1,0 +1,11 @@
+# 消融-扩展：单家族：只有 A 门禁
+arm: "sing_m3_a"
+recipe: "sing_m3_a"
+m1: none
+m2: none
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: "A"

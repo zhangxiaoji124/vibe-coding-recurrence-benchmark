@@ -1,0 +1,12 @@
+# 配方 42：K3-仓库感知 + P-程序分析 + C-修复循环
+# M3 定义：只加轮数（4轮），反馈用自然语言
+recipe: "42"
+arm: "42"
+m1: k3
+m2: p
+m3: [c]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 4
+  m3_level: C

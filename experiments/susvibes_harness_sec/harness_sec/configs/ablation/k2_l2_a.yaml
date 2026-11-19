@@ -1,0 +1,11 @@
+# 消融：K2 卡 + L2 审查 + A 门禁（无 E）
+arm: "k2_l2_a"
+recipe: "k2_l2_a"
+m1: k2
+m2: l2
+m3: [f, c, a]
+model: deepseek-chat
+params:
+  max_steps: 60
+  max_retries: 2
+  m3_level: "A"
