@@ -1,0 +1,11 @@
+recipe,ok,predictions,episodes,missing_tasks,extra_tasks,agent_errors,empty_patch,blocked,avg_attempts,avg_findings,cost_cny
+03,True,8,8,,,0,0,0,1.88,2.0,0.77
+08,True,8,8,,,0,0,5,2.5,3.75,1.21
+13,True,8,8,,,0,0,0,3.0,3.0,1.72
+18,True,8,8,,,0,0,0,2.38,3.5,1.26
+23,True,8,8,,,0,0,3,2.12,2.75,1.23
+28,True,8,8,,,0,0,0,1.0,0.12,0.37
+33,True,8,8,,,0,0,0,1.88,2.0,0.87
+38,True,8,8,,,0,0,0,4.5,6.38,1.76
+43,True,8,8,,,0,0,0,1.12,0.38,0.42
+48,True,8,8,,,0,0,0,2.0,2.0,1.06
