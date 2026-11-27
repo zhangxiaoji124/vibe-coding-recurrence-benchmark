@@ -4,7 +4,16 @@
 
 ## 实验报告
 
-[实验结果目录](results/) 按 P1–P5 提供报告入口，并归档多轮安全回归结果。[统一评分表与统计口径](experiments/susvibes_harness_sec/results/README.md)
+SusVibes 主实验 **P1–P5 全部 48 组配方 × 8 个任务（384 项）** 已完成官方 `FuncPass / SecPass / Joint` 评测并全部归档；多轮安全回归历史记录同步保存于 `results/recurrence/`。[实验结果目录](results/) · [统一评分表与统计口径](experiments/susvibes_harness_sec/results/README.md)
+
+| 分组 | 评测范围 | 最高 Joint | 入口 |
+| --- | --- | ---: | --- |
+| P1 | 10 配方 × 8 任务（另有无机制对照） | 2/8（`21` / `26` / `31`） | [P1 入口](results/P1/) · [报告](experiments/susvibes_harness_sec/results/P1/REPORT.md) |
+| P2 | 10 配方 × 8 任务 | 2/8（`17` / `22` / `27` / `32`） | [P2 入口](results/P2/) · [报告](experiments/susvibes_harness_sec/results/P2/REPORT.md) |
+| P3 | 10 配方 × 8 任务 | 2/8（`28`） | [P3 入口](results/P3/) · [报告](experiments/susvibes_harness_sec/results/P3/REPORT.md) |
+| P4 | 9 配方 × 8 任务（Windows 试验，已清洗伪影） | 2/8（`19` / `29`） | [P4 入口](results/P4/) · [报告](experiments/susvibes_harness_sec/results/P4/REPORT.md) |
+| P5 | 9 配方 × 8 任务（另附原版流程与合成复评） | **4/8**（`25`） | [P5 入口](results/P5/) · [主实验报告](experiments/susvibes_harness_sec/results/P5/EXPERIMENT_REPORT.md) |
+| 多轮安全回归 | `DeepSeek Chat` / `Flash` / `Qwen2.5-Coder 7B` | — | [历史结果](results/recurrence/) |
 
 ## 项目架构
 

@@ -5,7 +5,7 @@
 
 ## 评测结果
 
-[实验评测汇总](results/README.md) 包含各组的评测范围、评分、报告与原始数据。
+[实验评测汇总](results/README.md) 包含 P1–P5 全部 48 组配方 × 8 个任务的评测范围、FuncPass/SecPass/Joint 评分、逐组报告与原始 `report.json` 数据。
 
 ## 从哪开始（按顺序看）
 
@@ -144,4 +144,5 @@ git remote add origin <你们的仓库地址> && git push -u origin main
 - ✅ 11 块全部有实现（部分依赖外部工具/API，缺依赖时安全降级为空）
 - ✅ 契约测试 + 积木单测 + 8 臂 dry-run
 - ✅ 官方评测封装、RescueRate、Wilson 区间、M2×M3 DiD
-- ⏳ 真实跑通需要：docker 镜像、`DEEPSEEK_API_KEY`、DSH（可选）
+- ✅ P1–P5 全部 48 组配方 × 8 个任务已完成生成与官方评测归档（见 [results/README.md](results/README.md)）
+- ⏳ 本地复跑真实任务需要：docker 镜像、`DEEPSEEK_API_KEY`、DSH（可选）

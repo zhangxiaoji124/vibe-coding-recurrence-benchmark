@@ -30,3 +30,5 @@
 - 08 blocked 5/8、23 blocked 3/8；S/A 验收判定会减少交付。
 - 38 平均 4.5 次尝试，是 P3 中重试最多的组合。
 - 单 seed、n=8，结论按方向性处理。
+
+[分工说明](../../docs/OWNERS.md) · [配方分配](../../data/recipe_assignment.md) · [任务清单](../../data/tasks_8.json) · [返回总览](../README.md)
